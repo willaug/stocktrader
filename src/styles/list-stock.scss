@@ -1,0 +1,92 @@
+@import "variables.scss";
+//card
+.valued{
+    color: $lc3
+}
+
+.devalued{
+    color: $lc4
+}
+
+.stopped{
+    color: $lc5
+}
+
+.list-stock{
+    position: relative;
+    margin: 40px 0 20px 0;
+    background: $c2;
+    border-radius: 13px;
+
+    .stock{
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        padding: 0 12px;
+        align-items: center;
+        height: 60px;
+        position: relative;
+
+        .name{
+            position: relative;
+
+            h3{
+                font-weight: 500;
+                font-size: 18px;
+                letter-spacing: .6px;
+                color: $c6;
+            }
+
+            p{
+                line-height: 12px;
+                font-size: 14px;
+                color: $c4;
+            }
+        }
+
+        .price{
+            position: relative;
+            color: $c7;
+
+            h3{
+                font-weight: 500;
+                font-size: 18px;
+                letter-spacing: .6px;
+            }
+
+            p{
+                line-height: 12px;
+                font-size: 14px;
+                text-align: right;
+            }
+        }
+    }
+}
+
+@media (min-width: 700px) {
+    .list-stock{
+        border-radius: 0;
+        background: transparent;
+        display: grid;
+        grid-gap: 20px;
+        grid-template-columns: repeat(2, calc(50% - 10px));
+    
+        .stock{
+            background: $c2;
+            border-radius: 15px;
+            padding: 0 15px;
+            height: 73px;
+    
+            .name, .price{
+                h3{
+                    font-size: 20px;
+                }
+    
+                p{
+                    line-height: 16px;
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+}

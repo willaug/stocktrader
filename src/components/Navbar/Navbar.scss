@@ -1,0 +1,345 @@
+@import "@/styles/variables.scss";
+
+//content
+
+.navbar-1{
+    height: 80px;
+    justify-content: space-between;
+    display: flex;
+    margin-bottom: 30px;
+    
+    a{
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        img{
+            width: 40px;
+            height: 40px;
+            transition: all .3s ease;
+            
+            &:hover{
+                filter: brightness(120%);
+            }
+        }
+
+        .header{
+            display: none;
+            margin: 0;
+            margin-left: 8px;
+        }
+
+    }
+    
+    .nav{
+        display: none;
+    }
+
+    .menu-icon{
+        top: 50%;
+        transform: translateY(-50%);
+        height: 10px;
+        background: transparent;
+        cursor: pointer;
+        display: block;
+        
+        div{
+            width: 25px;
+            height: 3px;
+            border-radius: 3px;
+            background-color: $c6;
+            
+            &:last-child{
+                margin-top: 4px;
+                width: 20px;
+                margin-left: 5px;
+            }
+        }
+    }
+}
+
+.title-logo{
+    position: relative;
+    text-align: center;
+    margin: 26px 0px 32px 0px;
+    color: $c6;
+    font-weight: 600;
+    font-size: 27px;
+    letter-spacing: 1px;
+  }
+
+//menu
+.dark{
+  position: fixed;
+  z-index: 9000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba($color: #000000, $alpha: .6);
+}
+
+.menu{
+  background: $c2;
+  position: fixed;
+  width: 100%;
+  max-width: 280px;
+  height: 100%;
+  top: 0;
+  overflow: auto;
+  right: 0;
+  z-index: 9999;
+
+  .close{
+    color: $c4;
+    position: absolute;
+    left: 20px;
+    font-size: 20px;
+    top: 8px;
+    cursor: pointer;
+    transition: all .3s ease;
+
+    &:hover{
+      color: $c7;
+    }
+  }
+}
+
+
+//wallet
+.card-wallet{
+  position: relative;
+  width: 80%;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 45px;
+  border-radius: 7px;
+  border: 2px solid $lc2;
+  color: $lc2;
+  padding-left: 16px;
+  display: flex;
+  font-size: 20px;
+  line-height: 45px;
+  user-select: none;
+
+  .fas{
+    margin-right: 10px;
+  }
+
+  p{
+    font-weight: 500;
+  }
+}
+
+//links
+.list-menu{
+  margin: 35px 0px;
+  color: $c7;
+  width: 80%;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 17px;
+
+  li{
+    position: relative;
+    margin-bottom: 10px;
+    height: 40px;
+    border-radius: 5px;
+    line-height: 40px;
+    cursor: pointer;
+
+    .fas{
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 17px;
+    }
+  }
+}
+
+.li-box{
+    color: $c7;
+    text-decoration: none;
+    display: block;
+    position: relative;
+    border-radius: 5px;
+    width: 100%;
+    height: 100%;
+    transition: all .3s ease;
+    padding-left: 50px;
+}
+
+//if link is active
+.active{
+    background: $c8;
+}
+
+//spacing
+hr{
+    position: relative;
+    width: 100%;
+    background: $c8;
+    height: 1px;
+}
+
+//transitions
+.fade-enter, .fade-leave-to{
+    opacity: 0;
+}
+
+.fade-enter-active, .fade-leave-active{
+    transition: opacity .8s;
+}
+
+@keyframes slide-in{
+    from{
+        right: -280px;
+    }
+    to{
+        right: 0;
+    }
+}
+
+@keyframes slide-out{
+    from{
+        right: 0;
+    }
+    to{
+        right: -280px;
+    }
+}
+
+.slide-enter, .slide-leave-to{
+    right: 0;
+}
+
+.slide-enter-active{
+    animation: slide-in .8s ease;
+}
+
+.slide-leave-active{
+    animation: slide-out .8s ease;
+}
+
+@media (min-width: 700px) {
+
+    .navbar-1{    
+        a{
+            .header{
+                display: block;
+            }
+        }
+    }
+}
+
+@media (min-width: 1024px) {
+    .navbar-1{    
+        .menu-icon{
+            display: none;
+        }
+        .nav{
+            display: flex;
+            color: $c7;
+            align-items: center;
+            font-size: 17px;
+
+            a{
+                color: $c7;
+                text-align: center;
+                display: block;
+                height: 40px;
+                line-height: 40px;
+                user-select: none;
+                width: 120px;
+                letter-spacing: 0.4px;
+                border-radius: 6px;
+                transition: all .3s ease;
+            }
+        }
+    }
+
+    .card-wallet{
+        width: 190px;
+        left: auto;
+        transform: translateX(0);
+        height: 40px;
+        border-radius: 7px;
+        border: 2px solid $lc2;
+        color: $lc2;
+        margin: 0 10px;
+        padding: 0 16px;
+        font-size: 17px;
+        display: flex;
+        line-height: 40px;
+        user-select: none;
+      
+        .fas{
+          margin-right: 10px;
+        }
+      
+        p{
+          font-weight: 500;
+          color: $lc2;
+          width: 100%;
+          text-align: center;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+    }
+
+    .dropdown{
+        .fas{
+            width: 40px;
+            height: 40px;
+            border-radius: 20px;
+            line-height: 40px;
+            text-align: center;
+            user-select: none;
+            cursor: pointer;
+            
+        }
+
+        .dropdown-content{
+            position: absolute;
+            z-index: 300;
+            background: $c2;
+            width: 230px;
+            user-select: none;
+            overflow: hidden;
+            right: 24px;
+            border-radius: 7px;
+            top: 20px;
+            visibility: hidden;
+            opacity: 0;
+            transition: all .2s ease;
+        }
+
+
+        &:hover .dropdown-content{
+            visibility: visible;
+            opacity: 1;
+        }
+    }
+
+    .li-box{
+        color: $c7;
+        text-decoration: none;
+        display: block;
+        position: relative;
+        border-radius: 0px;
+        width: 100%;
+        height: 45px;
+        line-height: 45px;
+        padding-left: 0px;
+        cursor: pointer;
+        transition: all .2s ease;
+
+        .fas{
+            margin-left: 20px;
+        }
+
+        &:hover{
+            background: $c3;
+        }
+    }
+}

@@ -1,32 +1,51 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <!-- navbar -->
+    <navbar/>
+    <!-- principal content -->
+    <div class="content w-300">
+      <transition name="slide" appear mode="out-in" class="w-300">
+        <router-view/>
+      </transition>
     </div>
-    <router-view/>
   </div>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+import Navbar from './components/Navbar/Navbar' 
 
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+export default {
+  name: 'app',
+  components: { Navbar },
+  created() {
+    this.$store.dispatch('initStocks')
+    this.$store.dispatch('loadData')
   }
 }
+</script>
+
+<style scoped>
+  @keyframes slide-in {
+    from { transform: translateY(-25px); }
+    to { transform: translateY(0); }
+  }
+
+  @keyframes slide-out {
+    from { transform: translateY(0); }
+    to { transform: translateY(-25px); }
+  }
+
+  .slide-enter-active {
+    animation: slide-in .8s ease;
+    transition: opacity .8s;
+  }
+
+  .slide-leave-active {
+    animation: slide-out .8s ease;
+    transition: opacity .8s;
+  }
+
+  .slide-enter, .slide-leave-to {
+    opacity: 0;
+  }
 </style>
