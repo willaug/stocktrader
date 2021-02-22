@@ -2,13 +2,12 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import store from './store'
 import axios from 'axios'
-//import axios from './plugins/axios'
 //views
-import Home from './views/Home'
-import Stocks from './views/Stock/Stocks'
-import Portfolio from './views/Portfolio/Portfolio'
-import Portfolio_Stock from './views/Portfolio/Portfolio_Stock'
-import Buy_Stock from './views/Stock/Buy_Stock'
+const Home = () => import('./views/Home')
+const Stocks = () => import('./views/Stock/Stocks')
+const Portfolio = () => import('./views/Portfolio/Portfolio')
+const Portfolio_Stock = () => import('./views/Portfolio/Portfolio_Stock')
+const Buy_Stock = () => import('./views/Stock/Buy_Stock')
 
 Vue.use(Router)
 
