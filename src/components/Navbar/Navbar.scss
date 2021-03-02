@@ -288,37 +288,38 @@ hr{
     }
 
     .dropdown{
-        .fas{
-            width: 40px;
-            height: 40px;
-            border-radius: 20px;
-            line-height: 40px;
-            text-align: center;
-            user-select: none;
-            cursor: pointer;
-            
-        }
+        width: 40px;
+        height: 40px;
+        border-radius: 20px;
+        line-height: 40px;
+        text-align: center;
+        user-select: none;
+        cursor: pointer;
+        transition: all .4s ease;
+    }
+    
+    .dropdown-clicked{
+        background-color: $c9;
+    }
 
-        .dropdown-content{
-            position: absolute;
-            z-index: 300;
-            background: $c2;
-            width: 230px;
-            user-select: none;
-            overflow: hidden;
-            right: 24px;
-            border-radius: 7px;
-            top: 20px;
-            visibility: hidden;
-            opacity: 0;
-            transition: all .2s ease;
-        }
+    .dropdown-content{
+        position: absolute;
+        z-index: 300;
+        background: $c2;
+        width: 230px;
+        user-select: none;
+        overflow: hidden;
+        visibility: hidden;
+        opacity: 0;
+        right: 24px;
+        border-radius: 7px;
+        top: 80px;
+        transition: all .3s ease;
+    }
 
-
-        &:hover .dropdown-content{
-            visibility: visible;
-            opacity: 1;
-        }
+    .dropdown-show{
+        visibility: visible;
+        opacity: 1;
     }
 
     .li-box{
@@ -332,14 +333,15 @@ hr{
         line-height: 45px;
         padding-left: 0px;
         cursor: pointer;
-        transition: all .2s ease;
+        transition: all .3s ease;
 
         .fas{
             margin-left: 20px;
+            margin-right: 10px;
         }
 
         &:hover{
-            background: $c3;
+            background: $c9;
         }
     }
 }

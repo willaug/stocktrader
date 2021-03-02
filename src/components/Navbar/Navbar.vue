@@ -14,14 +14,14 @@
         <div class="card-wallet">
           <p><i class="fas fa-wallet"></i> {{ funds | BRL }}</p>
         </div>
-        <div class="dropdown">
+        <div class="dropdown" v-wave @click="dropdown">
           <i class="fas fa-ellipsis-v"></i>
-          <div class="dropdown-content">
-              <ul>
-                <li v-wave @click="endDay" class="li-box"><i class="fas fa-sun"></i> Finalizar dia</li>
-                <li v-wave @click="reset" class="li-box"><i class="fas fa-undo"></i> Resetar conta</li>
-              </ul>
-          </div>
+        </div>
+        <div class="dropdown-content" @click="dropdown">
+            <ul>
+              <li v-wave @click="endDay" class="li-box"><i class="fas fa-sun"></i> Finalizar dia</li>
+              <li v-wave @click="reset" class="li-box"><i class="fas fa-undo"></i> Resetar conta</li>
+            </ul>
         </div>
       </div>
     </nav>
@@ -67,6 +67,13 @@ export default {
       if(this.menu == true)
       { body.style.overflow = 'hidden' }
       else{ body.style.overflow = 'auto' }
+    },
+    dropdown(){
+      document.getElementsByClassName('dropdown')[0].classList.toggle('dropdown-clicked')
+      
+      setTimeout(() => {
+        document.getElementsByClassName('dropdown-content')[0].classList.toggle('dropdown-show')
+      }, 400)
     },
     endDay() {
       this.$store.dispatch('randomStocks')
